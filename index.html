@@ -3,156 +3,222 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="GlowMart — Latest Shopping Website" />
-  <title>GlowMart — Latest Shopping</title>
+  <meta name="description" content="GlowMart — Premium Shopping Website" />
+  <meta name="theme-color" content="#2563eb" />
+  <title>GlowMart — Premium Shopping</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- TOP BAR -->
+
+  <!-- ============ TOP BAR ============ -->
   <div class="top-bar">
-    <div class="container">
-      <div><i class="fas fa-truck"></i> Free shipping over $50</div>
-      <div class="right">
+    <div class="container top-bar-inner">
+      <div class="top-left">
+        <i class="fas fa-truck-fast"></i>
+        <span>Free shipping over $50</span>
+      </div>
+      <div class="top-right">
         <a href="#"><i class="fas fa-globe"></i> EN / USD</a>
-        <span><i class="fas fa-user"></i> Sign in</span>
-        <span><i class="fas fa-heart"></i> Wishlist</span>
+        <a href="#"><i class="fas fa-user"></i> Sign in</a>
+        <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
       </div>
     </div>
   </div>
 
-  <!-- HEADER -->
+  <!-- ============ HEADER ============ -->
   <header class="main-header">
-    <div class="container nav-container">
-      <div class="logo">
-        <i class="fas fa-bolt"></i> Glow<span>Mart</span>
-      </div>
+    <div class="container nav-wrap">
+      <a href="#" class="logo">
+        <i class="fas fa-bolt"></i>
+        <span>Glow<em>Mart</em></span>
+      </a>
 
       <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Search for products, brands..." />
-        <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Search for products, brands and more..." />
+        <button id="searchBtn">Search</button>
       </div>
 
-      <div class="nav-icons">
-        <a href="#" id="wishlistIcon" title="Wishlist"><i class="far fa-heart"></i></a>
-        <a href="#" id="cartIcon" title="Cart">
+      <div class="nav-actions">
+        <button class="icon-btn" id="wishlistBtn" title="Wishlist">
+          <i class="far fa-heart"></i>
+        </button>
+        <button class="icon-btn cart-btn" id="cartBtn" title="Cart">
           <i class="fas fa-shopping-bag"></i>
-          <span class="cart-badge" id="cartCount">0</span>
-        </a>
-        <a href="#" class="user-icon">
-          <i class="fas fa-user-circle"></i> Account
-        </a>
+          <span class="badge" id="cartCount">0</span>
+        </button>
+        <button class="account-btn">
+          <i class="fas fa-user-circle"></i>
+          <span>Account</span>
+        </button>
       </div>
     </div>
   </header>
 
-  <!-- CATEGORY STRIP -->
-  <div class="category-strip">
-    <div class="container cat-list" id="catList">
+  <!-- ============ CATEGORY STRIP ============ -->
+  <nav class="category-strip">
+    <div class="container cat-wrap" id="catList">
       <a href="#" class="active" data-cat="all"><i class="fas fa-th-large"></i> All</a>
-      <a href="#" data-cat="electronics"><i class="fas fa-mobile-alt"></i> Electronics</a>
-      <a href="#" data-cat="fashion"><i class="fas fa-tshirt"></i> Fashion</a>
+      <a href="#" data-cat="electronics"><i class="fas fa-mobile-screen"></i> Electronics</a>
+      <a href="#" data-cat="fashion"><i class="fas fa-shirt"></i> Fashion</a>
       <a href="#" data-cat="home"><i class="fas fa-couch"></i> Home</a>
-      <a href="#" data-cat="beauty"><i class="fas fa-leaf"></i> Beauty</a>
+      <a href="#" data-cat="beauty"><i class="fas fa-spa"></i> Beauty</a>
       <a href="#" data-cat="sports"><i class="fas fa-dumbbell"></i> Sports</a>
       <a href="#" data-cat="books"><i class="fas fa-book"></i> Books</a>
       <a href="#" data-cat="gaming"><i class="fas fa-gamepad"></i> Gaming</a>
-      <a href="#" data-cat="tools"><i class="fas fa-tools"></i> Tools</a>
+      <a href="#" data-cat="tools"><i class="fas fa-screwdriver-wrench"></i> Tools</a>
       <a href="#" data-cat="kids"><i class="fas fa-baby"></i> Kids</a>
       <a href="#" data-cat="pets"><i class="fas fa-paw"></i> Pets</a>
     </div>
-  </div>
+  </nav>
 
-  <div class="container">
+  <!-- ============ MAIN ============ -->
+  <main class="container">
+
     <!-- HERO -->
-    <div class="hero">
+    <section class="hero">
       <div class="hero-text">
-        <div class="tag"><i class="fas fa-bolt"></i> FLASH SALE</div>
-        <h1>New <span>Arrivals</span> <br />Summer 2026</h1>
-        <p>Fresh drops, exclusive deals & next‑gen style — shop the latest now.</p>
-        <button class="hero-btn" id="exploreBtn">Explore <i class="fas fa-arrow-right"></i></button>
-      </div>
-      <div class="hero-img">
-        <i class="fas fa-crown"></i>
-        <div style="font-size: 0.9rem; font-weight: 500; color: #1e1e2a;">Trending</div>
-      </div>
-    </div>
-
-    <!-- FEATURED -->
-    <div class="section-title">
-      <i class="fas fa-star"></i> Featured picks
-      <span class="badge-new">just dropped</span>
-    </div>
-    <div class="product-grid" id="productGrid"></div>
-
-    <!-- FLASH SALE BANNER -->
-    <div class="flash-sale">
-      <div class="left">
-        <h3><i class="fas fa-clock"></i> Flash sale</h3>
-        <div class="countdown" id="countdown">
-          <div>00 <span>h</span></div>
-          <div>00 <span>m</span></div>
-          <div>00 <span>s</span></div>
+        <span class="hero-tag"><i class="fas fa-bolt"></i> FLASH SALE — UP TO 40% OFF</span>
+        <h1>New <span class="accent">Arrivals</span><br>Summer Collection 2026</h1>
+        <p>Fresh drops, exclusive deals, and next‑gen style — discover the latest trends today.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" id="exploreBtn">
+            Explore Now <i class="fas fa-arrow-right"></i>
+          </button>
+          <button class="btn-ghost" id="learnBtn">
+            Learn More
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div><strong>15K+</strong><span>Products</span></div>
+          <div><strong>98%</strong><span>Happy Clients</span></div>
+          <div><strong>24/7</strong><span>Support</span></div>
         </div>
       </div>
-      <button class="flash-btn" id="flashBtn"><i class="fas fa-bolt"></i> Shop now</button>
-    </div>
+      <div class="hero-visual">
+        <div class="hero-circle">
+          <i class="fas fa-crown"></i>
+        </div>
+        <div class="floating-badge badge-1"><i class="fas fa-star"></i> Top Rated</div>
+        <div class="floating-badge badge-2"><i class="fas fa-fire"></i> Trending</div>
+        <div class="floating-badge badge-3"><i class="fas fa-shield-halved"></i> Secure</div>
+      </div>
+    </section>
+
+    <!-- FEATURED -->
+    <section class="section">
+      <div class="section-head">
+        <h2><i class="fas fa-star"></i> Featured Picks</h2>
+        <span class="chip">Just Dropped</span>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- FLASH SALE BANNER -->
+    <section class="flash-banner">
+      <div class="flash-left">
+        <span class="flash-pill"><i class="fas fa-bolt"></i> Limited Time</span>
+        <h3>Flash Sale — Ends Soon!</h3>
+        <p>Massive discounts on your favorite products.</p>
+      </div>
+      <div class="flash-timer" id="countdown">
+        <div><strong>00</strong><span>Hours</span></div>
+        <div><strong>00</strong><span>Minutes</span></div>
+        <div><strong>00</strong><span>Seconds</span></div>
+      </div>
+      <button class="btn-yellow" id="flashBtn">
+        <i class="fas fa-bolt"></i> Shop Now
+      </button>
+    </section>
 
     <!-- NEW ARRIVALS -->
-    <div class="section-title">
-      <i class="fas fa-fire"></i> New arrivals
-      <span class="badge-new">fresh</span>
-    </div>
-    <div class="product-grid" id="newArrivalsGrid"></div>
-  </div>
+    <section class="section">
+      <div class="section-head">
+        <h2><i class="fas fa-fire"></i> New Arrivals</h2>
+        <span class="chip">Fresh</span>
+      </div>
+      <div class="product-grid" id="newArrivalsGrid"></div>
+    </section>
 
-  <!-- TOAST -->
-  <div id="toast" class="toast"><i class="fas fa-check-circle"></i> <span id="toastMsg">Added to cart</span></div>
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+      <div>
+        <h3>Stay in the loop 🔔</h3>
+        <p>Get exclusive deals, new arrivals, and insider offers delivered to your inbox.</p>
+      </div>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Enter your email" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </section>
 
-  <!-- FOOTER -->
+  </main>
+
+  <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">
+            <i class="fas fa-bolt"></i>
+            <span>Glow<em>Mart</em></span>
+          </div>
+          <p>Your one‑stop destination for premium products at unbeatable prices.</p>
+          <div class="social-row">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
         <div>
           <h5>Shop</h5>
-          <a href="#">New arrivals</a>
-          <a href="#">Best sellers</a>
-          <a href="#">Gift cards</a>
+          <a href="#">New Arrivals</a>
+          <a href="#">Best Sellers</a>
+          <a href="#">Gift Cards</a>
           <a href="#">Clearance</a>
         </div>
         <div>
           <h5>Support</h5>
-          <a href="#">Help center</a>
+          <a href="#">Help Center</a>
           <a href="#">Returns</a>
-          <a href="#">Order status</a>
-          <a href="#">Contact</a>
+          <a href="#">Order Status</a>
+          <a href="#">Contact Us</a>
         </div>
         <div>
           <h5>Company</h5>
-          <a href="#">About</a>
+          <a href="#">About Us</a>
           <a href="#">Careers</a>
           <a href="#">Sustainability</a>
           <a href="#">Press</a>
         </div>
-        <div>
-          <h5>Stay connected</h5>
-          <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
-          <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
-          <a href="#"><i class="fab fa-youtube"></i> YouTube</a>
-          <a href="#"><i class="fab fa-tiktok"></i> TikTok</a>
-        </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 GlowMart — all rights reserved</span>
-        <div class="social">
-          <i class="fab fa-instagram"></i>
-          <i class="fab fa-x-twitter"></i>
-          <i class="fab fa-facebook"></i>
-          <i class="fab fa-youtube"></i>
+        <span>© 2026 GlowMart. All rights reserved.</span>
+        <div>
+          <a href="#">Privacy</a>
+          <a href="#">Terms</a>
+          <a href="#">Cookies</a>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- ============ TOAST ============ -->
+  <div id="toast" class="toast">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastMsg">Added to cart</span>
+  </div>
 
   <script src="script.js"></script>
 </body>
