@@ -4,23 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="GlowMart — Premium Shopping Website" />
-  <meta name="theme-color" content="#2563eb" />
   <title>GlowMart — Premium Shopping</title>
-
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- ============ TOP BAR ============ -->
+  <!-- TOP BAR -->
   <div class="top-bar">
     <div class="container top-bar-inner">
       <div class="top-left">
@@ -29,89 +22,139 @@
       </div>
       <div class="top-right">
         <a href="#"><i class="fas fa-globe"></i> EN / USD</a>
-        <a href="#"><i class="fas fa-user"></i> Sign in</a>
-        <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+        <a href="login.html" id="authLink"><i class="fas fa-user"></i> Sign in</a>
+        <a href="wishlist.html"><i class="fas fa-heart"></i> Wishlist</a>
       </div>
     </div>
   </div>
 
-  <!-- ============ HEADER ============ -->
+  <!-- HEADER -->
   <header class="main-header">
     <div class="container nav-wrap">
-      <a href="#" class="logo">
+      <a href="index.html" class="logo">
         <i class="fas fa-bolt"></i>
         <span>Glow<em>Mart</em></span>
       </a>
 
       <div class="search-bar">
         <i class="fas fa-search search-icon"></i>
-        <input type="text" id="searchInput" placeholder="Search for products, brands and more..." />
+        <input type="text" id="searchInput" placeholder="Search for products..." />
         <button id="searchBtn">Search</button>
       </div>
 
       <div class="nav-actions">
-        <button class="icon-btn" id="wishlistBtn" title="Wishlist">
-          <i class="far fa-heart"></i>
+        <button class="icon-btn" id="darkModeBtn" title="Dark Mode">
+          <i class="fas fa-moon"></i>
         </button>
-        <button class="icon-btn cart-btn" id="cartBtn" title="Cart">
+        <a href="wishlist.html" class="icon-btn" title="Wishlist">
+          <i class="far fa-heart"></i>
+          <span class="badge" id="wishlistCount">0</span>
+        </a>
+        <a href="cart.html" class="icon-btn cart-btn" title="Cart">
           <i class="fas fa-shopping-bag"></i>
           <span class="badge" id="cartCount">0</span>
-        </button>
-        <button class="account-btn">
+        </a>
+        <a href="login.html" class="account-btn" id="accountBtn">
           <i class="fas fa-user-circle"></i>
           <span>Account</span>
-        </button>
+        </a>
       </div>
     </div>
   </header>
 
-  <!-- ============ CATEGORY STRIP ============ -->
+  <!-- CATEGORY STRIP -->
   <nav class="category-strip">
     <div class="container cat-wrap" id="catList">
-      <a href="#" class="active" data-cat="all"><i class="fas fa-th-large"></i> All</a>
-      <a href="#" data-cat="electronics"><i class="fas fa-mobile-screen"></i> Electronics</a>
-      <a href="#" data-cat="fashion"><i class="fas fa-shirt"></i> Fashion</a>
-      <a href="#" data-cat="home"><i class="fas fa-couch"></i> Home</a>
-      <a href="#" data-cat="beauty"><i class="fas fa-spa"></i> Beauty</a>
-      <a href="#" data-cat="sports"><i class="fas fa-dumbbell"></i> Sports</a>
-      <a href="#" data-cat="books"><i class="fas fa-book"></i> Books</a>
-      <a href="#" data-cat="gaming"><i class="fas fa-gamepad"></i> Gaming</a>
-      <a href="#" data-cat="tools"><i class="fas fa-screwdriver-wrench"></i> Tools</a>
-      <a href="#" data-cat="kids"><i class="fas fa-baby"></i> Kids</a>
-      <a href="#" data-cat="pets"><i class="fas fa-paw"></i> Pets</a>
+      <a href="shop.html" class="active"><i class="fas fa-th-large"></i> All</a>
+      <a href="shop.html?cat=electronics"><i class="fas fa-mobile-screen"></i> Electronics</a>
+      <a href="shop.html?cat=fashion"><i class="fas fa-shirt"></i> Fashion</a>
+      <a href="shop.html?cat=home"><i class="fas fa-couch"></i> Home</a>
+      <a href="shop.html?cat=beauty"><i class="fas fa-spa"></i> Beauty</a>
+      <a href="shop.html?cat=sports"><i class="fas fa-dumbbell"></i> Sports</a>
+      <a href="shop.html?cat=books"><i class="fas fa-book"></i> Books</a>
+      <a href="shop.html?cat=gaming"><i class="fas fa-gamepad"></i> Gaming</a>
+      <a href="shop.html?cat=tools"><i class="fas fa-screwdriver-wrench"></i> Tools</a>
     </div>
   </nav>
 
-  <!-- ============ MAIN ============ -->
+  <!-- MAIN -->
   <main class="container">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-text">
-        <span class="hero-tag"><i class="fas fa-bolt"></i> FLASH SALE — UP TO 40% OFF</span>
-        <h1>New <span class="accent">Arrivals</span><br>Summer Collection 2026</h1>
-        <p>Fresh drops, exclusive deals, and next‑gen style — discover the latest trends today.</p>
-        <div class="hero-actions">
-          <button class="btn-primary" id="exploreBtn">
-            Explore Now <i class="fas fa-arrow-right"></i>
-          </button>
-          <button class="btn-ghost" id="learnBtn">
-            Learn More
-          </button>
+    <!-- HERO SLIDER -->
+    <section class="hero-slider" id="heroSlider">
+      <div class="hero-slide active">
+        <div class="slide-content">
+          <span class="hero-tag"><i class="fas fa-bolt"></i> FLASH SALE — UP TO 40% OFF</span>
+          <h1>New <span class="accent">Arrivals</span><br>Summer Collection 2026</h1>
+          <p>Fresh drops, exclusive deals, and next‑gen style — discover the latest trends today.</p>
+          <div class="hero-actions">
+            <a href="shop.html" class="btn-primary">Shop Now <i class="fas fa-arrow-right"></i></a>
+            <a href="about.html" class="btn-ghost">Learn More</a>
+          </div>
         </div>
-        <div class="hero-stats">
-          <div><strong>15K+</strong><span>Products</span></div>
-          <div><strong>98%</strong><span>Happy Clients</span></div>
-          <div><strong>24/7</strong><span>Support</span></div>
-        </div>
+        <div class="slide-visual"><i class="fas fa-crown"></i></div>
       </div>
-      <div class="hero-visual">
-        <div class="hero-circle">
-          <i class="fas fa-crown"></i>
+      <div class="hero-slide">
+        <div class="slide-content">
+          <span class="hero-tag"><i class="fas fa-star"></i> PREMIUM QUALITY</span>
+          <h1>Best <span class="accent">Deals</span><br>On Top Brands</h1>
+          <p>Shop from our curated collection of premium products at unbeatable prices.</p>
+          <div class="hero-actions">
+            <a href="shop.html" class="btn-primary">Explore <i class="fas fa-arrow-right"></i></a>
+          </div>
         </div>
-        <div class="floating-badge badge-1"><i class="fas fa-star"></i> Top Rated</div>
-        <div class="floating-badge badge-2"><i class="fas fa-fire"></i> Trending</div>
-        <div class="floating-badge badge-3"><i class="fas fa-shield-halved"></i> Secure</div>
+        <div class="slide-visual"><i class="fas fa-gem"></i></div>
+      </div>
+      <div class="hero-slide">
+        <div class="slide-content">
+          <span class="hero-tag"><i class="fas fa-truck-fast"></i> FREE DELIVERY</span>
+          <h1>Fast <span class="accent">Shipping</span><br>Right To Your Door</h1>
+          <p>Order today and get your products delivered within 2-3 business days.</p>
+          <div class="hero-actions">
+            <a href="shop.html" class="btn-primary">Start Shopping <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        <div class="slide-visual"><i class="fas fa-rocket"></i></div>
+      </div>
+      
+      <div class="slider-dots" id="sliderDots">
+        <button class="active" data-slide="0"></button>
+        <button data-slide="1"></button>
+        <button data-slide="2"></button>
+      </div>
+    </section>
+
+    <!-- CATEGORY CARDS -->
+    <section class="section">
+      <div class="section-head">
+        <h2><i class="fas fa-th"></i> Shop by Category</h2>
+        <a href="shop.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="category-cards">
+        <a href="shop.html?cat=electronics" class="cat-card">
+          <i class="fas fa-mobile-screen"></i>
+          <span>Electronics</span>
+        </a>
+        <a href="shop.html?cat=fashion" class="cat-card">
+          <i class="fas fa-shirt"></i>
+          <span>Fashion</span>
+        </a>
+        <a href="shop.html?cat=home" class="cat-card">
+          <i class="fas fa-couch"></i>
+          <span>Home</span>
+        </a>
+        <a href="shop.html?cat=beauty" class="cat-card">
+          <i class="fas fa-spa"></i>
+          <span>Beauty</span>
+        </a>
+        <a href="shop.html?cat=sports" class="cat-card">
+          <i class="fas fa-dumbbell"></i>
+          <span>Sports</span>
+        </a>
+        <a href="shop.html?cat=gaming" class="cat-card">
+          <i class="fas fa-gamepad"></i>
+          <span>Gaming</span>
+        </a>
       </div>
     </section>
 
@@ -122,9 +165,12 @@
         <span class="chip">Just Dropped</span>
       </div>
       <div class="product-grid" id="productGrid"></div>
+      <div style="text-align:center; margin-top:30px;">
+        <a href="shop.html" class="btn-primary">View All Products <i class="fas fa-arrow-right"></i></a>
+      </div>
     </section>
 
-    <!-- FLASH SALE BANNER -->
+    <!-- FLASH BANNER -->
     <section class="flash-banner">
       <div class="flash-left">
         <span class="flash-pill"><i class="fas fa-bolt"></i> Limited Time</span>
@@ -136,9 +182,7 @@
         <div><strong>00</strong><span>Minutes</span></div>
         <div><strong>00</strong><span>Seconds</span></div>
       </div>
-      <button class="btn-yellow" id="flashBtn">
-        <i class="fas fa-bolt"></i> Shop Now
-      </button>
+      <a href="shop.html" class="btn-yellow"><i class="fas fa-bolt"></i> Shop Now</a>
     </section>
 
     <!-- NEW ARRIVALS -->
@@ -148,6 +192,35 @@
         <span class="chip">Fresh</span>
       </div>
       <div class="product-grid" id="newArrivalsGrid"></div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section features-section">
+      <div class="section-head">
+        <h2><i class="fas fa-shield-halved"></i> Why Choose Us</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-truck-fast"></i></div>
+          <h4>Free Shipping</h4>
+          <p>On orders over $50. Fast delivery within 2-3 days.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-rotate-left"></i></div>
+          <h4>Easy Returns</h4>
+          <p>30-day return policy. No questions asked.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shield-halved"></i></div>
+          <h4>Secure Payment</h4>
+          <p>100% secure payment with SSL encryption.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-headset"></i></div>
+          <h4>24/7 Support</h4>
+          <p>Dedicated customer support team anytime.</p>
+        </div>
+      </div>
     </section>
 
     <!-- NEWSLETTER -->
@@ -164,43 +237,40 @@
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <div class="logo">
-            <i class="fas fa-bolt"></i>
-            <span>Glow<em>Mart</em></span>
-          </div>
+          <div class="logo"><i class="fas fa-bolt"></i><span>Glow<em>Mart</em></span></div>
           <p>Your one‑stop destination for premium products at unbeatable prices.</p>
           <div class="social-row">
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-x-twitter"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
           </div>
         </div>
         <div>
           <h5>Shop</h5>
-          <a href="#">New Arrivals</a>
-          <a href="#">Best Sellers</a>
-          <a href="#">Gift Cards</a>
-          <a href="#">Clearance</a>
+          <a href="shop.html">All Products</a>
+          <a href="shop.html?filter=new">New Arrivals</a>
+          <a href="shop.html?filter=best">Best Sellers</a>
+          <a href="shop.html?filter=sale">Sale</a>
         </div>
         <div>
           <h5>Support</h5>
+          <a href="contact.html">Contact Us</a>
           <a href="#">Help Center</a>
           <a href="#">Returns</a>
-          <a href="#">Order Status</a>
-          <a href="#">Contact Us</a>
+          <a href="#">Track Order</a>
         </div>
         <div>
           <h5>Company</h5>
-          <a href="#">About Us</a>
+          <a href="about.html">About Us</a>
           <a href="#">Careers</a>
-          <a href="#">Sustainability</a>
-          <a href="#">Press</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -214,12 +284,14 @@
     </div>
   </footer>
 
-  <!-- ============ TOAST ============ -->
   <div id="toast" class="toast">
     <i class="fas fa-check-circle"></i>
     <span id="toastMsg">Added to cart</span>
   </div>
 
+  <script src="products-data.js"></script>
+  <script src="auth.js"></script>
+  <script src="cart.js"></script>
   <script src="script.js"></script>
 </body>
-</html>
+</html>  
