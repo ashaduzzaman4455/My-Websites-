@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login — GlowMart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="auth-page">
+
+  <div class="auth-container">
+    <div class="auth-box">
+      <a href="index.html" class="auth-logo">
+        <i class="fas fa-bolt"></i> Glow<em>Mart</em>
+      </a>
+      
+      <div class="auth-tabs">
+        <button class="active" data-tab="login">Sign In</button>
+        <button data-tab="signup">Sign Up</button>
+      </div>
+      
+      <!-- LOGIN FORM -->
+      <form class="auth-form" id="loginForm" data-form="login">
+        <h2>Welcome back! 👋</h2>
+        <p>Sign in to continue shopping</p>
+        
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="loginEmail" placeholder="Email address" required>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="loginPassword" placeholder="Password" required>
+        </div>
+        
+        <div class="form-row">
+          <label class="check"><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Sign In</button>
+      </form>
+      
+      <!-- SIGNUP FORM -->
+      <form class="auth-form" id="signupForm" data-form="signup" style="display:none;">
+        <h2>Create account 🎉</h2>
+        <p>Join GlowMart today</p>
+        
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="signupName" placeholder="Full name" required>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="signupEmail" placeholder="Email address" required>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signupPassword" placeholder="Password (min 6 chars)" required minlength="6">
+        </div>
+        
+        <label class="check" style="margin-bottom:16px;">
+          <input type="checkbox" required> I agree to the Terms & Privacy Policy
+        </label>
+        
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Create Account</button>
+      </form>
+      
+      <div class="auth-footer">
+        <p>Demo: any email + password (6+ chars) works</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"><i class="fas fa-check-circle"></i><span id="toastMsg">Success</span></div>
+
+  <script src="products-data.js"></script>
+  <script src="auth.js"></script>
+  <script src="cart.js"></script>
+  <script src="script.js"></script>
+  <script>
+    (function() {
+      const tabs = document.querySelectorAll('.auth-tabs button');
+      const forms = document.querySelectorAll('.auth-form');
+      
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          tabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          forms.forEach(f => f.style.display = f.dataset.form === tab.dataset.tab ? 'block' : 'none');
+        });
+      });
+      
+      // Login
+      document.getElementById('loginForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value;
+        const pass = document.getElementById('loginPassword').value;
+        
+        const users = JSON.parse(localStorage.getItem('glowmart_users') || '[]');
+        const user = users.find(u => u.email === email && u.password === pass);
+        
+        if (user) {
+          window.GlowAuth.saveUser({ name: user.name, email: user.email });
+          window.showToast('Welcome back, ' + user.name + '! 🎉', 'fa-check-circle');
+          setTimeout(() => window.location.href = 'index.html', 1200);
+        } else {
+          window.showToast('Invalid email or password', 'fa-times-circle');
+        }
+      });
+      
+      // Signup
+      document.getElementById('signupForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const name = document.getElementById('signupName').value;
+        const email = document.getElementById('signupEmail').value;
+        const pass = document.getElementById('signupPassword').value;
+        
+        const users = JSON.parse(localStorage.getItem('glowmart_users') || '[]');
+        if (users.find(u => u.email === email)) {
+          window.showToast('Email already registered', 'fa-times-circle');
+          return;
+        }
+        
+        users.push({ name, email, password: pass });
+        localStorage.setItem('glowmart_users', JSON.stringify(users));
+        window.GlowAuth.saveUser({ name, email });
+        window.showToast('Account created! 🎉', 'fa-check-circle');
+        setTimeout(() => window.location.href = 'index.html', 1200);
+      });
+    })();
+  </script>
+</body>
+</html>
